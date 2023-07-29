@@ -1,6 +1,6 @@
 import React from "react"
 
-function Cell({id, cell, index, go, setGo, cells, setCells, winningMessage}) {
+function Cell({id, cell, go, setGo, cells, setCells, winningMessage}) {
 
     
     function handleChange(event) {
@@ -28,11 +28,12 @@ function Cell({id, cell, index, go, setGo, cells, setCells, winningMessage}) {
                 return cell 
              }
         })
+        console.log(nextCells)
         setCells(nextCells)
     }
 
     return (
-        <div className="square" id={id} onClick={!winningMessage && handleChange}>
+        <div className="square" id={id} onClick={!winningMessage ? handleChange : null}>
             <div className={cell}></div>
         </div>
     )
